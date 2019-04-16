@@ -1,0 +1,45 @@
+仅供参考学习，不足之处望见谅
+该项目已完成多机验证可运行 windows mac linux 皆可
+该项目完成基本功能，如需增加更多需求，请自行完成
+下载三方库 ，所需库已列在requirements.txt
+cmd 进入项目根目录下
+pip install requirements.txt
+
+关于该项目目录先后顺序
+1.创建好flask基本结构后 根目录创建配置文件config
+2.app.py实例化app对象和celery对象
+3.创建templates下的html文件
+4.celery_apscheduler 实现控制任务定时，暂停恢复以及删除任务
+5.celery_tasks 实现具体的任务以及分布式任务的分配
+
+#!切记配置好两个config文件的redis连接信息
+
+单机上：
+
+1.启动redis服务 并配置好ip或端口
+2.在两个根目录下的config和celery_tasks下的celery_config修改好配置
+3.启动celery服务
+windows环境
+#windows下selery4.0及后面版本已不在支持
+#进入cmd项目根目录或pycharm中Terminal窗口下启动celery，需要如下命令可运行
+# celery worker -A filename --loglevel=info -P eventlet
+# filename填celery实例化对象所在的文件 该项目为app.py
+# celery worker -A app --loglevel=info -P eventlet
+#新开窗口启动第二个celery服务
+#celery worker -A celery_tasks.main_task --loglevel=info -P eventlet
+启动后 在一台节点上启动flask
+网页输入对于参数即可
+
+linux或mac 环境
+#celery worker -A app --loglevel=info -P gevent -c 100
+#celery worker -A celery_tasks.main_task --loglevel=info -P gevent -c 100
+启动后 在一台节点上启动flask
+网页输入对于参数即可
+
+分布式：
+启动方式同上
+每个节点都需启动 两个celery  比如该项目的 app 和 celery_tasks.main_task
+副节点启动后显示有
+mingle: sync with 1 nodes 表示其他节点已连接上celery服务
+启动后 在一台节点上启动flask
+网页输入对于参数即可

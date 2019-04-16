@@ -1,0 +1,47 @@
+[
+{
+"description": "get_scheduler_info",
+"endpoint": "/scheduler",
+"method": "GET"
+},
+{
+"description": "add_job",
+"endpoint": "/scheduler/jobs",
+"method": "POST"
+},
+{
+"description": "get_jobs",
+"endpoint": "/scheduler/jobs",
+"method": "GET"
+},
+{
+"description": "get_job",
+"endpoint": "/scheduler/jobs/<job_id>",
+"method": "GET"
+},
+{
+"description": "delete_job",
+"endpoint": "/scheduler/jobs/<job_id>",
+"method": "DELETE"
+},
+{
+"description": "update_job",
+"endpoint": "/scheduler/jobs/<job_id>",
+"method": "PATCH"
+},
+{
+"description": "pause_job",
+"endpoint": "/scheduler/jobs/<job_id>/pause",
+"method": "POST"
+},
+{
+"description": "resume_job",
+"endpoint": "/scheduler/jobs/<job_id>/resume",
+"method": "POST"
+},
+{
+"description": "run_job",
+"endpoint": "/scheduler/jobs/<job_id>/run",
+"method": "POST"
+}
+]
