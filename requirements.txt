@@ -1,7 +1,7 @@
 amqp==2.4.2
 APScheduler==3.6.0
 billiard==3.6.0.0
-celery==4.3.0
+celery==5.2.2
 Flask==1.0.2
 Flask-APScheduler==1.11.0
 Flask-Celery-Helper==1.1.0
